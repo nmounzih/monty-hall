@@ -23,25 +23,18 @@ def main():
         for num in doors:
             if num not in door_car and num not in door_first_pick:
                 poss_goat.append(num)
+            elif num not in door_goat and num not in door_first_pick:
+                door_second_pick.append(num)
         door_goat.append(random.choice(poss_goat))
         if door_first_pick == door_car:
             stay_car_prizes += 1
         else:
             stay_goat_prizes += 1
-        for num in doors:
-            if num not in door_car and num not in door_first_pick:
-                poss_goat.append(num)
         door_goat.append(random.choice(poss_goat))
-        for num in doors:
-            if num not in door_goat and num not in door_first_pick:
-                door_second_pick.append(num)
         if door_second_pick == door_car:
             switch_car_prizes += 1
         else:
             switch_goat_prizes += 1
-        for num in doors:
-            if num not in door_goat and num not in door_first_pick:
-                door_second_pick.append(num)
         random_pool.append(door_first_pick)
         random_pool.append(door_second_pick)
         final_choice = random.choice(random_pool)
